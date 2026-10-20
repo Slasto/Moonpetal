@@ -4,7 +4,7 @@ A soft, eye-friendly theme for Obsidian featuring pastel text colors on a soft d
 
 ## Features
 - Carefully tuned pastel palette designed to reduce eye strain.
-- **Lightweight and performant:** Pure CSS with zero bloat, ensuring instant rendering and zero impact on vault speed.
+- Pure CSS with zero bloat.
 - Custom styling for headings, inline formatting, code blocks, lists, and tables.
 - Integrated file explorer icons with custom color-coded indicators.
 - Fully supports both Obsidian Dark and Light modes.

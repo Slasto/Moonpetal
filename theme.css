@@ -54,36 +54,49 @@ body {
 }
 
 /* Fallback in case another stylesheet overrides the variables (includes the "#" markers) */
-:is(.markdown-rendered, .markdown-source-view) :is(strong, .cm-strong) {
-    color: var(--bold-color) !important;
+.markdown-rendered :is(strong, em, h1, h2, h3, h4, h5, h6),
+.markdown-source-view :is(.cm-strong, .cm-em, .cm-header-1, .cm-header-2, .cm-header-3, .cm-header-4, .cm-header-5, .cm-header-6) {
+    color: inherit;
 }
 
-:is(.markdown-rendered, .markdown-source-view) :is(em, .cm-em) {
-    color: var(--italic-color) !important;
+.markdown-rendered strong,
+.markdown-source-view .cm-strong {
+    color: var(--bold-color);
 }
 
-:is(.markdown-rendered h1, .cm-header-1) {
-    color: var(--h1-color) !important;
+.markdown-rendered em,
+.markdown-source-view .cm-em {
+    color: var(--italic-color);
 }
 
-:is(.markdown-rendered h2, .cm-header-2) {
-    color: var(--h2-color) !important;
+.markdown-rendered h1,
+.markdown-source-view .cm-header-1 {
+    color: var(--h1-color);
 }
 
-:is(.markdown-rendered h3, .cm-header-3) {
-    color: var(--h3-color) !important;
+.markdown-rendered h2,
+.markdown-source-view .cm-header-2 {
+    color: var(--h2-color);
 }
 
-:is(.markdown-rendered h4, .cm-header-4) {
-    color: var(--h4-color) !important;
+.markdown-rendered h3,
+.markdown-source-view .cm-header-3 {
+    color: var(--h3-color);
 }
 
-:is(.markdown-rendered h5, .cm-header-5) {
-    color: var(--h5-color) !important;
+.markdown-rendered h4,
+.markdown-source-view .cm-header-4 {
+    color: var(--h4-color);
 }
 
-:is(.markdown-rendered h6, .cm-header-6) {
-    color: var(--h6-color) !important;
+.markdown-rendered h5,
+.markdown-source-view .cm-header-5 {
+    color: var(--h5-color);
+}
+
+.markdown-rendered h6,
+.markdown-source-view .cm-header-6 {
+    color: var(--h6-color);
 }
 
 /* ---------- LINKS ----------
@@ -103,7 +116,7 @@ body {
 .cm-formatting-link,
 .cm-formatting-link-string,
 .cm-string.cm-url {
-    color: rgb(var(--cp-gray)) !important;
+    color: rgb(var(--cp-gray));
 }
 
 /* ---------- BLOCKQUOTES ( > ) ---------- */
@@ -149,64 +162,64 @@ body {
 }
 
 .callout:is([data-callout="failure"], [data-callout="fail"], [data-callout="missing"],
-            [data-callout="danger"], [data-callout="error"], [data-callout="bug"]) {
+    [data-callout="danger"], [data-callout="error"], [data-callout="bug"]) {
     --callout-color: var(--cp-red);
-            }
+}
 
-            .callout:is([data-callout="example"]) {
-                --callout-color: var(--cp-mauve);
-            }
+.callout:is([data-callout="example"]) {
+    --callout-color: var(--cp-mauve);
+}
 
-            .callout:is([data-callout="quote"], [data-callout="cite"]) {
-                --callout-color: var(--cp-gray);
-            }
+.callout:is([data-callout="quote"], [data-callout="cite"]) {
+    --callout-color: var(--cp-gray);
+}
 
-            .callout {
-                background-color: rgba(var(--callout-color), 0.10);
-                border: none;
-                border-left: 4px solid rgb(var(--callout-color));
-            }
+.callout {
+    background-color: rgba(var(--callout-color), 0.10);
+    border: none;
+    border-left: 4px solid rgb(var(--callout-color));
+}
 
-            .callout-title {
-                color: rgb(var(--callout-color));
-            }
+.callout-title {
+    color: rgb(var(--callout-color));
+}
 
-            /* ---------- SOFT BLACK BACKGROUND (dark mode only) ---------- */
-            body.theme-dark {
-                --background-primary: #121212;
-                --background-primary-alt: #181818;
-                --background-secondary: #0e0e0e;
-                --background-secondary-alt: #0a0a0a;
-                --background-modifier-hover: rgba(255, 255, 255, 0.05);
-                --background-modifier-border: #242424;
-                --background-modifier-border-hover: #2e2e2e;
-                --background-modifier-form-field: #181818;
-                --code-background: #181818;
-                --titlebar-background: #0a0a0a;
-                --titlebar-background-focused: #0e0e0e;
-                --tab-container-background: #0a0a0a;
-            }
+/* ---------- SOFT BLACK BACKGROUND (dark mode only) ---------- */
+body.theme-dark {
+    --background-primary: #121212;
+    --background-primary-alt: #181818;
+    --background-secondary: #0e0e0e;
+    --background-secondary-alt: #0a0a0a;
+    --background-modifier-hover: rgba(255, 255, 255, 0.05);
+    --background-modifier-border: #242424;
+    --background-modifier-border-hover: #2e2e2e;
+    --background-modifier-form-field: #181818;
+    --code-background: #181818;
+    --titlebar-background: #0a0a0a;
+    --titlebar-background-focused: #0e0e0e;
+    --tab-container-background: #0a0a0a;
+}
 
-            body.theme-dark :is(.workspace-leaf-content, .markdown-source-view, .markdown-preview-view) {
-                background-color: #121212 !important;
-            }
+body.theme-dark :is(.workspace-leaf-content, .markdown-source-view, .markdown-preview-view) {
+    background-color: #121212;
+}
 
-            /* ---------- ACCENT, SELECTION, HIGHLIGHT, CURSOR ----------
+/* ---------- ACCENT, SELECTION, HIGHLIGHT, CURSOR ----------
              *  Lavender accent: it also replaces the color picked in Settings > Appearance
              *  (to pick it from there again, delete the two lines containing --accent-h). */
-            body.theme-dark {
-                --accent-h: 239 !important;
-                --accent-s: 66% !important;
-                --accent-l: 84% !important;
-            }
+body.theme-dark {
+    --accent-h: 239;
+    --accent-s: 66%;
+    --accent-l: 84%;
+}
 
-            body.theme-light {
-                --accent-h: 231 !important;
-                --accent-s: 97% !important;
-                --accent-l: 72% !important;
-            }
+body.theme-light {
+    --accent-h: 231;
+    --accent-s: 97%;
+    --accent-l: 72%;
+}
 
-            body.theme-dark,
+body.theme-dark,
 body.theme-light {
     --interactive-accent: rgb(var(--cp-lavender));
     --interactive-accent-hover: rgb(var(--cp-pink));
@@ -339,8 +352,14 @@ body {
     vertical-align: -0.2em;
     background-color: var(--ic, currentColor);
     opacity: 0.9;
-    -webkit-mask: var(--icon) center / contain no-repeat;
-    mask: var(--icon) center / contain no-repeat;
+    -webkit-mask-image: var(--icon);
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: var(--icon);
+    mask-position: center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
 }
 
 /* ---------- FOLDERS (open / closed) ---------- */
