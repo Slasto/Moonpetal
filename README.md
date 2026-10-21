@@ -21,19 +21,17 @@ A soft, eye-friendly theme for Obsidian featuring pastel text colors on a soft d
 
 ## Installation
 
-<!--
-### Via Obsidian Settings (Recommended) 
+### Via Obsidian (Recommended)
+Use this [link](https://community.obsidian.md/themes/moonpetal) or follow the following instruction:
 1. Open Obsidian and go to **Settings > Appearance > Themes > Manage**.
 2. Search for **Moonpetal**.
 3. Click **Install and Use**.
--->
 
 ### Manual Installation
 
 #### Install as a Theme
-1. Clone this repository into `your_vault_path/.obsidian/themes/`.
-2. You only need `theme.css` and `manifest.json`; icons are included in `theme.css`.
-3. Open Obsidian, go to **Settings > Appearance**, and select **Moonpetal**.
+1. Clone this repository into `your_vault_path/.obsidian/themes/`, you only need `theme.css` and `manifest.json`;
+2. Open Obsidian, go to **Settings > Appearance**, and select **Moonpetal**.
 
 #### Install as a CSS snippet
 1. Copy `theme.css` into `your_vault_path/.obsidian/snippets/`.
