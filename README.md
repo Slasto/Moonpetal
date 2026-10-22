@@ -2,6 +2,8 @@
 
 A soft, eye-friendly theme for Obsidian featuring pastel text colors on a soft dark background or a warm paper light background. The color palette is adapted from Catppuccin (Frappé and Latte).
 
+> This theme and its CSS files were generated with the assistance of AI.
+
 ## Features
 - Carefully tuned pastel palette designed to reduce eye strain.
 - Pure CSS with zero bloat.
@@ -10,14 +12,16 @@ A soft, eye-friendly theme for Obsidian featuring pastel text colors on a soft d
 - Fully supports both Obsidian Dark and Light modes.
 
 ## Showcase
+### Dark Mode
+![Theme Preview](./img/dark/1.webp)
 
-> This theme and its CSS files were generated with the assistance of AI.
+![Theme Preview](./img/dark/2.webp)
 
-![Theme Preview](./img/1.webp)
+### Light Mode
 
-![Theme Preview](./img/2.webp)
+![Theme Preview](./img/light/1.webp)
 
-![Theme Preview](./img/3.webp)
+![Theme Preview](./img/light/2.webp)
 
 ## Installation
 
