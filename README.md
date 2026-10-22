@@ -12,7 +12,9 @@ A soft, eye-friendly theme for Obsidian featuring pastel text colors on a soft d
 - Fully supports both Obsidian Dark and Light modes.
 
 ## Showcase
+
 ### Dark Mode
+
 ![Theme Preview](./img/dark/1.webp)
 
 ![Theme Preview](./img/dark/2.webp)
