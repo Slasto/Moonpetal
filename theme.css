@@ -1,3 +1,10 @@
+/* =====================================================================
+   MOONPETAL - a soft, eye-friendly theme for Obsidian
+   Pastel text colors on a soft black (dark) or a soft paper (light).
+   Palette adapted from Catppuccin (Frappe / Latte), MIT License.
+   To change a color, edit ONLY the palette below.
+   ===================================================================== */
+
 /* ---------- PALETTE (RGB triplets) ---------- */
 body.theme-dark {
     --cp-blue: 140, 170, 238;
@@ -51,12 +58,6 @@ body {
     --h6-color: rgb(var(--cp-mauve));
     --bold-color: rgb(var(--cp-red));
     --italic-color: rgb(var(--cp-sky));
-}
-
-/* Fallback in case another stylesheet overrides the variables (includes the "#" markers) */
-.markdown-rendered :is(strong, em, h1, h2, h3, h4, h5, h6),
-.markdown-source-view :is(.cm-strong, .cm-em, .cm-header-1, .cm-header-2, .cm-header-3, .cm-header-4, .cm-header-5, .cm-header-6) {
-    color: inherit;
 }
 
 .markdown-rendered strong,
@@ -113,9 +114,7 @@ body {
 }
 
 /* Dim the brackets and URL of [text](url) while editing */
-.cm-formatting-link,
-.cm-formatting-link-string,
-.cm-string.cm-url {
+.markdown-source-view :is(.cm-formatting-link, .cm-formatting-link-string, .cm-string.cm-url) {
     color: rgb(var(--cp-gray));
 }
 
@@ -205,8 +204,8 @@ body.theme-dark :is(.workspace-leaf-content, .markdown-source-view, .markdown-pr
 }
 
 /* ---------- ACCENT, SELECTION, HIGHLIGHT, CURSOR ----------
-             *  Lavender accent: it also replaces the color picked in Settings > Appearance
-             *  (to pick it from there again, delete the two lines containing --accent-h). */
+ *  Lavender is the default accent. The explicit colors below take priority,
+ *  so the accent picker in Settings > Appearance only affects derived shades. */
 body.theme-dark {
     --accent-h: 239;
     --accent-s: 66%;
@@ -365,7 +364,7 @@ body {
 /* ---------- FOLDERS (open / closed) ---------- */
 .nav-folder-title-content::before {
     --icon: var(--i-folder-open);
-    --ic: rgb(var(--cp-yellow, 229, 200, 144));
+    --ic: rgb(var(--cp-yellow));
 }
 
 .nav-folder.is-collapsed>.nav-folder-title .nav-folder-title-content::before {
@@ -375,17 +374,17 @@ body {
 /* ---------- FILES BY TYPE (anything else gets a plain file icon) ---------- */
 .nav-file-title-content::before {
     --icon: var(--i-file);
-    --ic: rgb(var(--cp-gray, 115, 121, 148));
+    --ic: rgb(var(--cp-gray));
 }
 
 .nav-file-title[data-path$=".md" i] .nav-file-title-content::before {
     --icon: var(--i-md);
-    --ic: rgb(var(--cp-lavender, 186, 187, 241));
+    --ic: rgb(var(--cp-lavender));
 }
 
 .nav-file-title[data-path$=".pdf" i] .nav-file-title-content::before {
     --icon: var(--i-md);
-    --ic: rgb(var(--cp-red, 186, 187, 241));
+    --ic: rgb(var(--cp-red));
 }
 
 .nav-file-title[data-path$=".png" i] .nav-file-title-content::before,
@@ -397,7 +396,7 @@ body {
 .nav-file-title[data-path$=".webp" i] .nav-file-title-content::before,
 .nav-file-title[data-path$=".avif" i] .nav-file-title-content::before {
     --icon: var(--i-image);
-    --ic: rgb(var(--cp-green, 186, 187, 241));
+    --ic: rgb(var(--cp-green));
 }
 
 .nav-file-title[data-path$=".mp3" i] .nav-file-title-content::before,
@@ -407,7 +406,7 @@ body {
 .nav-file-title[data-path$=".3gp" i] .nav-file-title-content::before,
 .nav-file-title[data-path$=".flac" i] .nav-file-title-content::before {
     --icon: var(--i-audio);
-    --ic: rgb(var(--cp-peach, 186, 187, 241));
+    --ic: rgb(var(--cp-peach));
 }
 
 .nav-file-title[data-path$=".mp4" i] .nav-file-title-content::before,
@@ -416,15 +415,15 @@ body {
 .nav-file-title[data-path$=".mov" i] .nav-file-title-content::before,
 .nav-file-title[data-path$=".mkv" i] .nav-file-title-content::before {
     --icon: var(--i-video);
-    --ic: rgb(var(--cp-mauve, 186, 187, 241));
+    --ic: rgb(var(--cp-mauve));
 }
 
 .nav-file-title[data-path$=".canvas" i] .nav-file-title-content::before {
     --icon: var(--i-canvas);
-    --ic: rgb(var(--cp-teal, 186, 187, 241));
+    --ic: rgb(var(--cp-teal));
 }
 
 .nav-file-title[data-path$=".base" i] .nav-file-title-content::before {
     --icon: var(--i-base);
-    --ic: rgb(var(--cp-sapphire, 186, 187, 241));
+    --ic: rgb(var(--cp-sapphire));
 }
