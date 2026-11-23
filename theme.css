@@ -219,6 +219,7 @@ body {
 }
 
 .callout {
+    --callout-color: var(--cp-blue);
     background-color: rgba(var(--callout-color), 0.10);
     border: none;
     border-left: 4px solid rgb(var(--callout-color));
