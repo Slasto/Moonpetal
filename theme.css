@@ -100,10 +100,10 @@ body {
     --bold-color: rgb(var(--cp-red));
 
     /* Link interni ed esterni */
-    --link-color: rgb(var(--cp-teal));
-    --link-color-hover: rgb(var(--cp-green));
-    --link-external-color: rgb(var(--cp-lavender));
-    --link-external-color-hover: rgb(var(--cp-pink));
+    --link-color: rgb(var(--cp-lavender));
+    --link-color-hover: rgb(var(--cp-pink));
+    --link-external-color: var(--link-color);
+    --link-external-color-hover: var(--link-color-hover);
     --link-unresolved-color: rgb(var(--cp-red));
     --link-unresolved-opacity: 0.85;
     --link-unresolved-decoration-style: dashed;
