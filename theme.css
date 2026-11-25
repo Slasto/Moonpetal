@@ -17,8 +17,8 @@ body.theme-dark {
     --cp-red: 231, 130, 132;
     --cp-mauve: 202, 158, 230;
     --cp-lavender: 186, 187, 241;
-    --cp-pink: 244, 184, 228;
-    --cp-flamingo: 238, 190, 190;
+    --cp-pink: 220, 171, 208;
+    --cp-flamingo: 214, 178, 184;
     --cp-gray: 131, 139, 167;
 
     --accent-h: 239;
@@ -50,7 +50,7 @@ body.theme-light {
     --cp-green: 47, 138, 31;
     --cp-yellow: 176, 108, 10;
     --cp-peach: 214, 82, 6;
-    --cp-red: 210, 15, 57;
+    --cp-red: 184, 39, 76;
     --cp-mauve: 136, 57, 239;
     --cp-lavender: 72, 90, 215;
     --cp-pink: 193, 63, 160;
@@ -95,13 +95,15 @@ body {
     --h4-color: rgb(var(--cp-teal));
     --h5-color: rgb(var(--cp-blue));
     --h6-color: rgb(var(--cp-mauve));
-    --bold-color: rgb(var(--cp-red));
+
     --italic-color: rgb(var(--cp-sky));
+    --bold-color: rgb(var(--cp-red));
 
     /* Link interni ed esterni */
-    --link-color: rgb(var(--cp-lavender));
-    --link-external-color: rgb(var(--cp-flamingo));
-    --link-external-color-hover: rgb(var(--cp-peach));
+    --link-color: rgb(var(--cp-teal));
+    --link-color-hover: rgb(var(--cp-green));
+    --link-external-color: rgb(var(--cp-lavender));
+    --link-external-color-hover: rgb(var(--cp-pink));
     --link-unresolved-color: rgb(var(--cp-red));
     --link-unresolved-opacity: 0.85;
     --link-unresolved-decoration-style: dashed;
@@ -166,6 +168,15 @@ body {
 .markdown-rendered em,
 .markdown-source-view .cm-em {
     color: var(--italic-color);
+}
+
+.markdown-rendered strong em,
+.markdown-rendered em strong,
+.markdown-source-view .cm-strong.cm-em {
+    color: rgb(var(--cp-red));
+    background: rgba(var(--cp-pink), 0.12);
+    border-radius: 3px;
+    padding: 0 2px;
 }
 
 /* Attenua parentesi e URL in modalità edit */
