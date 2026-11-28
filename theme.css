@@ -35,14 +35,19 @@ body.theme-dark {
     --background-modifier-border: #242424;
     --background-modifier-border-hover: #2e2e2e;
     --background-modifier-form-field: #181818;
+    --background-modifier-cover: rgba(0, 0, 0, 0.7);
+    --modal-background: #141414;
     --code-background: #181818;
     --titlebar-background: #0a0a0a;
     --titlebar-background-focused: #0e0e0e;
     --tab-container-background: #0a0a0a;
+
+    --text-normal: #c6d0f5;
+    --text-muted: #a5adce;
+    --text-faint: #737994;
 }
 
 body.theme-light {
-    /* Palette Latte calibrata per contrasto ottimale su sfondo chiaro */
     --cp-blue: 30, 102, 245;
     --cp-sapphire: 22, 122, 151;
     --cp-sky: 4, 135, 188;
@@ -57,9 +62,9 @@ body.theme-light {
     --cp-flamingo: 184, 63, 63;
     --cp-gray: 108, 111, 133;
 
-    --accent-h: 231;
-    --accent-s: 97%;
-    --accent-l: 72%;
+    --accent-h: 233;
+    --accent-s: 64%;
+    --accent-l: 56%;
     --text-on-accent: #ffffff;
 
     /* Sfondi Light (Soft Paper) */
@@ -88,7 +93,7 @@ body {
     --font-monospace-theme: "JetBrains Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
     --line-height-normal: 1.65;
 
-    /* Titoli (Obsidian li gestisce nativamente tramite queste variabili) */
+    /* Titoli e formattazione testo */
     --h1-color: rgb(var(--cp-yellow));
     --h2-color: rgb(var(--cp-peach));
     --h3-color: rgb(var(--cp-green));
@@ -98,6 +103,9 @@ body {
 
     --italic-color: rgb(var(--cp-yellow));
     --bold-color: rgb(var(--cp-red));
+
+    /* Fallback callout personalizzati / non standard */
+    --callout-default: var(--cp-blue);
 
     /* Link interni ed esterni */
     --link-color: rgb(var(--cp-lavender));
@@ -117,6 +125,22 @@ body {
     --text-selection: rgba(var(--cp-lavender), 0.25);
     --text-highlight-bg: rgba(var(--cp-yellow), 0.25);
     --caret-color: rgb(var(--cp-lavender));
+
+    /* Focus e Notifiche UI */
+    --background-modifier-border-focus: rgb(var(--cp-lavender));
+    --background-modifier-error: rgba(var(--cp-red), 0.2);
+    --background-modifier-error-hover: rgba(var(--cp-red), 0.3);
+    --background-modifier-success: rgba(var(--cp-green), 0.2);
+    --text-error: rgb(var(--cp-red));
+    --text-success: rgb(var(--cp-green));
+
+    /* Graph View */
+    --graph-line: rgba(var(--cp-gray), 0.35);
+    --graph-node: rgb(var(--cp-lavender));
+    --graph-node-unresolved: rgb(var(--cp-red));
+    --graph-node-focused: rgb(var(--cp-pink));
+    --graph-node-tag: rgb(var(--cp-sapphire));
+    --graph-node-attachment: rgb(var(--cp-green));
 
     /* Citazioni (Blockquotes) */
     --blockquote-border-color: rgb(var(--cp-lavender));
@@ -159,24 +183,19 @@ body {
     --scrollbar-active-thumb-bg: rgba(var(--cp-gray), 0.5);
 }
 
-/* Grassetto e Corsivo (richiedono selettore esplicito) */
-.markdown-rendered strong,
-.markdown-source-view .cm-strong {
-    color: var(--bold-color);
-}
-
-.markdown-rendered em,
-.markdown-source-view .cm-em {
-    color: var(--italic-color);
-}
-
+/* Grassetto + Corsivo combinato (non gestito nativamente da variabili) */
 .markdown-rendered strong em,
-.markdown-rendered em strong,
-.markdown-source-view .cm-strong.cm-em {
-    color: rgb(var(--cp-red));
-    background: rgba(var(--cp-pink), 0.12);
+.markdown-rendered em strong {
+    color: var(--bold-color);
+    background: color-mix(in srgb, var(--bold-color) 15%, transparent);
     border-radius: 3px;
     padding: 0 2px;
+}
+
+.markdown-source-view .cm-strong.cm-em {
+    color: var(--bold-color);
+    background: color-mix(in srgb, var(--bold-color) 15%, transparent);
+    border-radius: 3px;
 }
 
 /* Attenua parentesi e URL in modalità edit */
@@ -230,22 +249,22 @@ body {
 }
 
 .callout {
-    --callout-color: var(--cp-blue);
-    background-color: rgba(var(--callout-color), 0.10);
+    background-color: rgba(var(--callout-color, var(--cp-blue)), 0.10);
     border: none;
-    border-left: 4px solid rgb(var(--callout-color));
+    border-left: 4px solid rgb(var(--callout-color, var(--cp-blue)));
 }
 
 .callout-title {
-    color: rgb(var(--callout-color));
+    color: rgb(var(--callout-color, var(--cp-blue)));
 }
 
-body.theme-light .callout-title {
-    color: color-mix(in srgb, rgb(var(--callout-color)) 70%, black);
+body.theme-light .callout-title,
+body.theme-light .callout-icon svg {
+    color: color-mix(in srgb, rgb(var(--callout-color, var(--cp-blue))) 70%, black);
 }
 
 /* ---------- FORME DELLE ICONE (SVG Lucide inline) ---------- */
-body {
+.nav-files-container {
     --i-folder: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z'/%3E%3C/svg%3E");
     --i-folder-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2'/%3E%3C/svg%3E");
     --i-file: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/%3E%3Cpath d='M14 2v4a2 2 0 0 0 2 2h4'/%3E%3C/svg%3E");
@@ -258,24 +277,24 @@ body {
 }
 
 /* Box condiviso per le icone del file explorer */
-.nav-folder-title-content::before,
-.nav-file-title-content::before {
+.nav-files-container .nav-folder-title-content,
+.nav-files-container .nav-file-title-content {
+    position: relative;
+    padding-left: calc(1.1em + 6px);
+}
+
+.nav-files-container .nav-folder-title-content::before,
+.nav-files-container .nav-file-title-content::before {
     content: "";
-    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0.1em;
     width: 1.1em;
     height: 1.1em;
-    margin-right: 6px;
-    vertical-align: -0.2em;
     background-color: var(--ic, currentColor);
     opacity: 0.9;
-    -webkit-mask-image: var(--icon);
-    -webkit-mask-position: center;
-    -webkit-mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    mask-image: var(--icon);
-    mask-position: center;
-    mask-size: contain;
-    mask-repeat: no-repeat;
+    -webkit-mask: var(--icon) center / contain no-repeat;
+    mask: var(--icon) center / contain no-repeat;
 }
 
 /* Cartelle (aperte / chiuse) */
